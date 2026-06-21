@@ -11,6 +11,7 @@ import Lenis from 'lenis'
 import { useScrollProgress } from '../hooks/useScrollProgress'
 import { useMouseParallax } from '../hooks/useMouseParallax'
 import { Scene01_Hero } from '../scenes/Scene01_Hero'
+import { Scene02_Reveal } from '../scenes/Scene02_Reveal'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -119,6 +120,11 @@ export const Experience = () => {
           mouseY={mouseY}
         />
         <Scene01_Hero
+          scrollProgress={scrollProgress}
+          mouseX={mouseX}
+          mouseY={mouseY}
+        />
+        <Scene02_Reveal
           scrollProgress={scrollProgress}
           mouseX={mouseX}
           mouseY={mouseY}
