@@ -1,26 +1,84 @@
-@import "tailwindcss";
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --void: #020408;
+  --deep-blue: #020d1a;
+  --surface-blue: #0d3b6e;
+  --active-blue: #1a6bbd;
+  --neon: #4a9eff;
+  --white: #f0f4ff;
+  --muted: #7a9abf;
+  --screen-glow: #1a3a6e;
+  --particle-far: #1a4a8a;
+  --particle-near: #4a9eff;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-hebrew: 'Heebo', sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  direction: rtl;
+  scroll-behavior: auto;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  cursor: none;
+  background: var(--void);
+  color: var(--white);
+  font-family: var(--font-hebrew), sans-serif;
+  overflow-x: hidden;
+}
+
+/* LTR islands */
+.ltr {
+  direction: ltr;
+  font-family: var(--font-display), sans-serif;
+}
+
+/* Scroll indicator bounce */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0) translateX(-50%); }
+  50% { transform: translateY(8px) translateX(-50%); }
+}
+
+/* Marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Fade in */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Canvas wrapper — full screen, fixed */
+#canvas-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  direction: ltr; /* RTL breaks Three.js canvas */
+}
+
+/* Scroll container — creates scroll space */
+#scroll-container {
+  position: relative;
+  height: 600vh;
+  width: 100%;
+  pointer-events: none;
+}
+
+/* Custom cursor */
+body * {
+  cursor: none !important;
+}
+
+input, textarea {
+  cursor: text !important;
 }
