@@ -10,6 +10,7 @@ import * as THREE from 'three'
 import Lenis from 'lenis'
 import { useScrollProgress } from '../hooks/useScrollProgress'
 import { useMouseParallax } from '../hooks/useMouseParallax'
+import { Scene01_Hero } from '../scenes/Scene01_Hero'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -113,6 +114,11 @@ export const Experience = () => {
     >
       <Suspense fallback={null}>
         <SceneContent
+          scrollProgress={scrollProgress}
+          mouseX={mouseX}
+          mouseY={mouseY}
+        />
+        <Scene01_Hero
           scrollProgress={scrollProgress}
           mouseX={mouseX}
           mouseY={mouseY}

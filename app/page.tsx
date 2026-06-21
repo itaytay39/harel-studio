@@ -3,6 +3,7 @@ import { Suspense } from 'react'
 import dynamic from 'next/dynamic'
 import { Cursor } from '../components/Cursor'
 import { LoadingOverlay } from '../components/LoadingScreen'
+import { ScrollIndicator } from '../components/ScrollIndicator'
 
 const Experience = dynamic(
   () => import('../components/Experience').then((m) => ({ default: m.Experience })),
@@ -13,6 +14,7 @@ export default function Home() {
   return (
     <main>
       <Cursor />
+      <ScrollIndicator />
       <LoadingOverlay onComplete={() => {}} />
       <div
         id="canvas-wrapper"
