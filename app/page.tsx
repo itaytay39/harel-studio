@@ -1,13 +1,28 @@
 'use client'
+import { Suspense } from 'react'
+import dynamic from 'next/dynamic'
+import { Cursor } from '../components/Cursor'
+import { LoadingOverlay } from '../components/LoadingScreen'
+
+const Experience = dynamic(
+  () => import('../components/Experience').then((m) => ({ default: m.Experience })),
+  { ssr: false }
+)
 
 export default function Home() {
   return (
     <main>
-      {/* Canvas wrapper — Three.js will render here */}
-      <div id="canvas-wrapper" />
-
-      {/* Scroll container — creates 600vh scroll space */}
-      <div id="scroll-container" />
+      <Cursor />
+      <LoadingOverlay onComplete={() => {}} />
+      <div
+        id="canvas-wrapper"
+        style={{ position: 'fixed', inset: 0, direction: 'ltr' }}
+      >
+        <Suspense fallback={null}>
+          <Experience />
+        </Suspense>
+      </div>
+      <div id="scroll-container" style={{ height: '600vh' }} />
     </main>
   )
 }
