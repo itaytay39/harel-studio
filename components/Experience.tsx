@@ -15,6 +15,8 @@ import { Scene02_Reveal } from '../scenes/Scene02_Reveal'
 import { Scene03_Portal } from '../scenes/Scene03_Portal'
 import { Scene04_Inside } from '../scenes/Scene04_Inside'
 import { Scene05_Capabilities } from '../scenes/Scene05_Capabilities'
+import { Scene06_Convergence } from '../scenes/Scene06_Convergence'
+import { Scene07_Landing } from '../scenes/Scene07_Landing'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -143,6 +145,16 @@ export const Experience = () => {
           mouseY={mouseY}
         />
         <Scene05_Capabilities
+          scrollProgress={scrollProgress}
+          mouseX={mouseX}
+          mouseY={mouseY}
+        />
+        <Scene06_Convergence
+          scrollProgress={scrollProgress}
+          mouseX={mouseX}
+          mouseY={mouseY}
+        />
+        <Scene07_Landing
           scrollProgress={scrollProgress}
           mouseX={mouseX}
           mouseY={mouseY}

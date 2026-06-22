@@ -95,6 +95,113 @@ function Scene04Overlay({ scrollProgress }: { scrollProgress: number }) {
   )
 }
 
+function Scene07Overlay({ scrollProgress }: { scrollProgress: number }) {
+  const progress = Math.max(0, Math.min(1, (scrollProgress - 0.97) / 0.03))
+  if (progress === 0) return null
+
+  return (
+    <>
+      {/* Navigation */}
+      <nav style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 300,
+        padding: '1.5rem 3rem',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        opacity: progress,
+        transform: `translateY(${(1 - progress) * -30}px)`,
+        transition: 'opacity 0.4s ease, transform 0.4s ease',
+        background: 'rgba(2,4,8,0.85)',
+        backdropFilter: 'blur(12px)',
+        direction: 'rtl',
+      }}>
+        <span style={{
+          fontFamily: 'var(--font-hebrew)',
+          fontSize: '1rem',
+          fontWeight: 700,
+          color: '#f0f4ff',
+          letterSpacing: '0.05em',
+        }}>
+          סטודיו הראל
+        </span>
+        <div style={{ display: 'flex', gap: '2.5rem' }}>
+          {['עבודות', 'יכולות', 'צור קשר'].map(item => (
+            <a key={item} data-hover href="#" style={{
+              fontFamily: 'var(--font-hebrew)',
+              fontSize: '0.85rem',
+              color: '#7a9abf',
+              textDecoration: 'none',
+              letterSpacing: '0.05em',
+              transition: 'color 0.2s',
+            }}>
+              {item}
+            </a>
+          ))}
+        </div>
+      </nav>
+
+      {/* Hero content */}
+      <div style={{
+        position: 'fixed',
+        inset: 0,
+        zIndex: 50,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-end',
+        justifyContent: 'center',
+        paddingRight: '8vw',
+        opacity: progress,
+        pointerEvents: progress > 0.5 ? 'auto' : 'none',
+      }}>
+        <h1 style={{
+          fontFamily: 'var(--font-hebrew)',
+          fontSize: 'clamp(2.5rem, 7vw, 6rem)',
+          fontWeight: 800,
+          lineHeight: 0.95,
+          color: '#f0f4ff',
+          direction: 'rtl',
+          marginBottom: '1.5rem',
+          marginTop: '5rem',
+        }}>
+          הסטודיו<br />של הראל
+        </h1>
+        <p style={{
+          fontFamily: 'var(--font-hebrew)',
+          fontSize: '1rem',
+          color: '#7a9abf',
+          direction: 'rtl',
+          marginBottom: '3rem',
+          letterSpacing: '0.05em',
+        }}>
+          עיצוב דיגיטלי · פיתוח · מיתוג
+        </p>
+        <a
+          data-hover
+          href="mailto:studio@harel.design"
+          style={{
+            fontFamily: 'var(--font-hebrew)',
+            fontSize: '0.9rem',
+            fontWeight: 500,
+            color: '#4a9eff',
+            border: '1px solid #4a9eff',
+            padding: '0.8rem 2rem',
+            textDecoration: 'none',
+            letterSpacing: '0.1em',
+            transition: 'background 0.2s, color 0.2s',
+            direction: 'rtl',
+          }}
+        >
+          צור קשר
+        </a>
+      </div>
+    </>
+  )
+}
+
 export default function Home() {
   const [scrollProgress, setScrollProgress] = useState(0)
 
@@ -123,6 +230,7 @@ export default function Home() {
       <div id="scroll-container" style={{ height: '600vh' }} />
       <WhiteFlash scrollProgress={scrollProgress} />
       <Scene04Overlay scrollProgress={scrollProgress} />
+      <Scene07Overlay scrollProgress={scrollProgress} />
       <Marquee />
     </main>
   )
