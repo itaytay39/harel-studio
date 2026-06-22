@@ -13,6 +13,8 @@ import { useMouseParallax } from '../hooks/useMouseParallax'
 import { Scene01_Hero } from '../scenes/Scene01_Hero'
 import { Scene02_Reveal } from '../scenes/Scene02_Reveal'
 import { Scene03_Portal } from '../scenes/Scene03_Portal'
+import { Scene04_Inside } from '../scenes/Scene04_Inside'
+import { Scene05_Capabilities } from '../scenes/Scene05_Capabilities'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -131,6 +133,16 @@ export const Experience = () => {
           mouseY={mouseY}
         />
         <Scene03_Portal
+          scrollProgress={scrollProgress}
+          mouseX={mouseX}
+          mouseY={mouseY}
+        />
+        <Scene04_Inside
+          scrollProgress={scrollProgress}
+          mouseX={mouseX}
+          mouseY={mouseY}
+        />
+        <Scene05_Capabilities
           scrollProgress={scrollProgress}
           mouseX={mouseX}
           mouseY={mouseY}
