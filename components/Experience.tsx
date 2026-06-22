@@ -91,14 +91,7 @@ export const Experience = () => {
     gsap.ticker.add((time: number) => lenis.raf(time * 1000))
     gsap.ticker.lagSmoothing(0)
 
-    // Pin the canvas while scroll container scrolls
-    ScrollTrigger.create({
-      trigger: '#scroll-container',
-      start: 'top top',
-      end: 'bottom bottom',
-      pin: '#canvas-wrapper',
-      pinSpacing: false,
-    })
+    // Canvas is already position:fixed, no pin needed
 
     return () => {
       lenis.destroy()

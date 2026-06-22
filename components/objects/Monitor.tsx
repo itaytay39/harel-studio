@@ -1,4 +1,7 @@
 'use client'
+// R3F automatically disposes geometries and materials created via JSX primitives
+// (<boxGeometry>, <meshPhysicalMaterial>, etc.) when the component unmounts.
+// No manual dispose() calls are needed for JSX-declared Three.js objects.
 import { useRef, useMemo } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { RenderTexture, PerspectiveCamera, Text } from '@react-three/drei'

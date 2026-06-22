@@ -207,7 +207,9 @@ export default function Home() {
 
   useEffect(() => {
     const onScroll = () => {
-      const p = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)
+      const denom = document.documentElement.scrollHeight - window.innerHeight
+      if (denom <= 0) return
+      const p = Math.max(0, Math.min(1, window.scrollY / denom))
       setScrollProgress(p)
     }
     window.addEventListener('scroll', onScroll, { passive: true })
