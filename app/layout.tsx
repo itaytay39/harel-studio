@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Space_Grotesk, Heebo } from 'next/font/google'
+import { Space_Grotesk, Heebo, Noto_Sans_Hebrew } from 'next/font/google'
 import './globals.css'
 
 const spaceGrotesk = Space_Grotesk({
@@ -14,6 +14,13 @@ const heebo = Heebo({
   weight: ['300', '400', '500', '700', '800'],
 })
 
+// Ultra-heavy Hebrew display face for the chapter titles
+const notoHebrew = Noto_Sans_Hebrew({
+  subsets: ['hebrew'],
+  variable: '--font-title',
+  weight: ['800', '900'],
+})
+
 export const metadata: Metadata = {
   title: 'סטודיו הראל — עיצוב שמספר סיפור',
   description: 'Harel Studio — Cinematic Design Experience',
@@ -25,7 +32,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="he" dir="rtl" className={`${heebo.variable} ${spaceGrotesk.variable}`}>
+    <html
+      lang="he"
+      dir="rtl"
+      className={`${heebo.variable} ${spaceGrotesk.variable} ${notoHebrew.variable}`}
+    >
       <body>{children}</body>
     </html>
   )
