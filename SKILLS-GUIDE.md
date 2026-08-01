@@ -6,6 +6,23 @@
 
 ---
 
+## ✅ צריך להתקין — צ'קליסט פעולה (למי שממשיך מכאן)
+
+**הסקילים הבאים צריכים להיות מותקנים. התקן אותם לפי הסדר:**
+
+- [ ] **theme-factory** — מ-`anthropics/skills` → לתוך `.claude/skills/theme-factory/` → commit
+- [ ] **canvas-design** — מ-`anthropics/skills` → לתוך `.claude/skills/canvas-design/` → commit
+- [ ] **webapp-testing** — מ-`anthropics/skills` → לתוך `.claude/skills/webapp-testing/` → commit
+- [ ] **Superpowers** — `/plugin marketplace add obra/superpowers-marketplace` → `/plugin install superpowers@superpowers-marketplace`
+- [ ] **agent-reach** — **מקומי בלבד**: `pip install agent-reach && agent-reach install` (ראה `AGENT-REACH-SETUP.md`)
+- [ ] **Destructive Command Guard** — **מקומי בלבד**: `install.sh --easy-mode` (בטיחות)
+
+**כבר מותקן (לא לגעת):** `frontend-design`, `no-ai-slop`, `i-have-adhd`.
+
+> הפקודה המהירה להתקנת שלושת הסקילים מ-anthropic נמצאת בהמשך, בסעיף "התקנה קבוצתית".
+
+---
+
 ## איך בכלל מתקינים סקיל (3 שיטות)
 
 | שיטה | פקודה / פעולה | מתי |
